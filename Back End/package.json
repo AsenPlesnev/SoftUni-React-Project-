@@ -1,13 +1,8 @@
 {
   "name": "back-end",
   "version": "1.0.0",
-  "description": "Backend for React Project",
-  "main": "pathToMain",
-  "scripts": {
-    "start": "nodemon"
-  },
-  "author": "Asen Plesnev",
-  "license": "ISC",
+  "description": "",
+  "main": "index.js",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "cookie-parser": "^1.4.5",
@@ -16,5 +11,11 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.28",
     "nodemon": "^2.0.4"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon"
+  },
+  "author": "",
+  "license": "ISC"
 }

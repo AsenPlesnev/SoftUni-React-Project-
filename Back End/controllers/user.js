@@ -35,8 +35,15 @@ module.exports = {
                     console.log(err);
                 })
         },
+
         login: (req, res, next) => {
             const { email, password } = req.body;
+
+            if (!email || !password) {
+                res.status(400).send("All fields are required!");
+                return;
+            }
+
             models.User.findOne({ email })
                 .then((user) => Promise.all([user, user.matchPassword(password)]))
                 .then(([user, match]) => {
@@ -50,6 +57,7 @@ module.exports = {
                 })
                 .catch(next);
         },
+
         logout: (req, res, next) => {
             const token = req.cookies[config.authCookieName];
             console.log('-'.repeat(100));

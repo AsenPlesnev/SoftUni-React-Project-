@@ -6,7 +6,9 @@ module.exports = (app) => {
 
     app.use('/api/subject', router.subject);
 
-    app.use('/api/student', router.student)
+    app.use('/api/student', router.student);
+
+    app.use('/api/grade', router.grade)
 
     //app.use('/api/subject', router.subject);
 

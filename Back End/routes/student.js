@@ -4,6 +4,8 @@ const { auth } = require('../utils');
 
 router.get('/', auth(), controllers.student.get);
 
+router.get('/:id', controllers.student.getById);
+
 router.post('/create', auth(), controllers.student.post);
 
 router.put('/edit/:id', auth(), controllers.student.put);

@@ -7,6 +7,16 @@ module.exports = {
             .catch(next);
     },
 
+    getById: (req, res, next) => {
+        const id = req.params.id;
+
+        models.Student.findOne({ _id: id }).populate('grades')
+            .then((student) => {
+                res.send(student);
+            })
+            .catch(next);
+    },
+
     post: (req, res, next) => {
         const { name, code, phone } = req.body;
 

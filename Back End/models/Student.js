@@ -26,14 +26,6 @@ const studentSchema = new Schema({
         maxlength: 10
     },
 
-    subjects: [
-        {
-            type: ObjectId,
-            ref: 'Subject',
-            require: false
-        }
-    ],
-
     grades: [
         {
             type: ObjectId,

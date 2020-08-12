@@ -6,14 +6,12 @@ const { String, Number, ObjectId } = Schema.Types;
 const studentSchema = new Schema({
     name: {
         type: String,
-        unique: true,
         required: true
     },
 
     code: {
         type: String,
         required: true,
-        unique: true,
         minlength: 10,
         maxlength: 10
     },
@@ -21,7 +19,6 @@ const studentSchema = new Schema({
     phone: {
         type: String,
         required: true,
-        unique: true,
         minlength: 10,
         maxlength: 10
     },

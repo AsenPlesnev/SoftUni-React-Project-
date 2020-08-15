@@ -1,10 +1,27 @@
 import React, { Component } from 'react';
 import styles from './index.module.css';
+import Link from '../Link';
 
 class HomePage extends Component {
     render() {
         return (
             <div className={styles['gradient-animation']} style={{ "overflowX": "hidden" }}>
+
+                <nav className={"transparent z-depth-0"}>
+                    <div className={"nav-wrapper"}>
+                        <div className="nav-wrapper">
+                            <div className={"row"}>
+                                <div className={"col s12"}>
+                                    <ul className={"right hide-on-med-and-down"}>
+                                        <Link href="/register" title="Регистрация" />
+                                        <Link href="/login" title="Вход" />
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
                 <div className={"row"}>
                     <div className={"col s12"}>
                         <div className={styles.valign}>
@@ -17,8 +34,8 @@ class HomePage extends Component {
                                     <div className={"container"}>
                                         <div className={"row"}>
                                             <div className={"input-field col s12 m4 push-m4"}>
-                                                <label htmlFor="code">Код</label>
-                                                <input id="code" name="code" type="text"></input>
+                                                <label htmlFor="code" className={styles['home-label']}>Код</label>
+                                                <input id="code" name="code" type="text" className={styles['home-input']} />
                                             </div>
                                         </div>
                                     </div>

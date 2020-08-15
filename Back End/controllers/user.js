@@ -1,17 +1,17 @@
 const models = require('../models');
 const config = require('../config/config');
 const utils = require('../utils');
-const registerCode = '9c834817-343a-4061-9ca3-fcc1384b4b5f';
+const registerCode = 'b88c4d60-1e85-44a3-b377-39745f826a97';
 
 
 module.exports = {
     post: {
         register: (req, res, next) => {
-            const { email, username, password, confirmPassword, code } = req.body;
+            const { email, password, confirmPassword, code } = req.body;
 
             //TODO VALIDATIONS
 
-            if (!email || !username || !password || !confirmPassword || !code) {
+            if (!email || !password || !confirmPassword || !code) {
                 res.status(400).send("All fields are required!");
                 return;
             }
@@ -26,10 +26,10 @@ module.exports = {
                 return;
             }
 
-            models.User.create({ username, email, password })
+            models.User.create({ email, password })
                 .then((createdUser) => {
-                    console.log(createdUser);
-                    return res.send(createdUser);
+                    const token = utils.jwt.createToken({ id: createdUser._id });
+                    res.header("Authorization", token).send(createdUser);
                 })
                 .catch((err) => {
                     console.log(err);
@@ -53,7 +53,7 @@ module.exports = {
                     }
 
                     const token = utils.jwt.createToken({ id: user._id });
-                    res.cookie(config.authCookieName, token).send(user);
+                    res.header("Authorization", token).send(user);
                 })
                 .catch(next);
         },
